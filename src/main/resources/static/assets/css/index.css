@@ -1,0 +1,9 @@
+
+.signinpanel .uname {
+    background: #fff url(../img/ti.jpg) no-repeat 95% center;color:#333;
+}
+
+.signinpanel .pword {
+    background: #fff url(../img/locked.png) no-repeat 95% center;color:#333;
+}
+
