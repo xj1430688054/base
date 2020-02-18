@@ -23,7 +23,7 @@ import com.xj.base.service.support.impl.BaseServiceImpl;
  * </p>
  *
  * @author xujian
- * @since 2019-03-15
+ * @since 2020-02-28
  */
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements IUserService {

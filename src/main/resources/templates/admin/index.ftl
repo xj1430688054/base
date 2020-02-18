@@ -80,82 +80,42 @@
                     <li>
                         <a href="#">
                             <i class="fa fa fa-cog"></i>
-                            <span class="nav-label">人事管理</span>
+                            <span class="nav-label">基本管理</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                         <@shiro.hasPermission name="system:employee:index">
+                         
                             <li>
-                               <a class="J_menuItem" href="${ctx!}/admin/employee/index">职工信息管理</a>
+                               <a class="J_menuItem" href="${ctx!}/admin/student/index">学生信息管理</a>
                             </li>
-                         </@shiro.hasPermission>
-                         <@shiro.hasPermission name="system:dept:index">
-                            <li>
-                                <a class="J_menuItem" href="${ctx!}/admin/dept/index">部门信息管理</a>
-                            </li>
-                         </@shiro.hasPermission>
-                          <@shiro.hasPermission name="system:dept:index">
-                            <li>
-                                <a class="J_menuItem" href="${ctx!}/admin/log/index">离职职工信息</a>
-                            </li>
-                         </@shiro.hasPermission>
                      
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa fa-cog"></i>
-                            <span class="nav-label">薪资管理</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                         <@shiro.hasPermission name="system:salary:index">
                             <li>
-                               <a class="J_menuItem" href="${ctx!}/admin/salary/index">工资套账管理</a>
+                                <a class="J_menuItem" href="${ctx!}/admin/course/index">课程信息管理</a>
                             </li>
-                         </@shiro.hasPermission>
-                         <@shiro.hasPermission name="system:empsal:index">
+                      
                             <li>
-                                <a class="J_menuItem" href="${ctx!}/admin/empsal/index">员工套账设置</a>
+                                <a class="J_menuItem" href="${ctx!}/admin/log/index">教师信息管理</a>
                             </li>
-                         </@shiro.hasPermission>
-                        </ul>
-                    </li>
-                     <li>
-                        <a href="#">
-                            <i class="fa fa fa-cog"></i>
-                            <span class="nav-label">公告管理</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
+                     
+                            <li>
+                                <a class="J_menuItem" href="${ctx!}/admin/dorm/index">宿舍信息管理</a>
+                            </li>
+                       
+                       
+                       
+                       
                          <@shiro.hasPermission name="system:notice:index">
                             <li>
                                <a class="J_menuItem" href="${ctx!}/admin/notice/index">公告管理</a>
                             </li>
                          </@shiro.hasPermission>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a href="#">
-                            <i class="fa fa fa-cog"></i>
-                            <span class="nav-label">请假管理</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                         <@shiro.hasPermission name="system:leave:index">
-                            <li>
-                               <a class="J_menuItem" href="${ctx!}/admin/leave/index">请假列表</a>
-                            </li>
-                         </@shiro.hasPermission>
-                         <@shiro.hasPermission name="system:leave:index">
-                            <li>
-                                <a class="J_menuItem" href="${ctx!}/admin/leave/form">请假申请</a>
-                            </li>
-                         </@shiro.hasPermission>
                      
                         </ul>
                     </li>
+                    
+                    
+                    
+                   
                     <li class="line dk"></li>
                 </ul>
             </div>

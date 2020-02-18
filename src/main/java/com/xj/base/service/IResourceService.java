@@ -12,7 +12,7 @@ import com.xj.base.vo.ZtreeView;
  * </p>
  *
  * @author xujian
- * @since 2019-03-15
+ * @since 2020-02-28
  */
 public interface IResourceService extends IBaseService<Resource, Integer> {
 

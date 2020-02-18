@@ -24,7 +24,7 @@ import com.xj.base.entity.support.BaseEntity;
  * </p>
  *
  * @author xujian
- * @since 2019-03-15
+ * @since 2020-02-28
  */
 @Entity
 @Table(name = "tb_user")

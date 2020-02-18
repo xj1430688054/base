@@ -16,7 +16,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import com.xj.base.common.DateEditor;
-import com.xj.base.controller.admin.system.EmloyeeController;
 import com.xj.base.service.IUserService;
 
 public class BaseController {

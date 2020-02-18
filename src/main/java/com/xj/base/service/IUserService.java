@@ -9,7 +9,7 @@ import com.xj.base.service.support.IBaseService;
  * </p>
  *
  * @author xujian
- * @since 2019-03-15
+ * @since 2020-02-28
  */
 public interface IUserService extends IBaseService<User, Integer> {
 
