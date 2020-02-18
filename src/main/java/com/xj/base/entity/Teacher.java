@@ -16,13 +16,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.xj.base.entity.support.BaseEntity;
 
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "tb_teacher")
-public class Teacher {
+public class Teacher extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
