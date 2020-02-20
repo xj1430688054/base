@@ -33,8 +33,8 @@ public class Student extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@Column(name = "id", nullable = false)
     private Integer id;
 
     private String name;

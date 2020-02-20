@@ -72,6 +72,8 @@
 										value="${student.address}">
 								</div>
 							</div>
+							
+							<#if !add??>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">宿舍：</label>
 								<div class="col-sm-8">
@@ -88,8 +90,7 @@
 									</select>
 								</div>
 							</div>	
-							
-							
+							</#if>
 							
 							
 							

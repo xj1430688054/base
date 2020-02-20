@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>人事信息</title>
+    <title>学生信息</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -28,7 +28,7 @@
             <div class="col-sm-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>人员信息</h5>
+                        <h5>学生信息</h5>
                     </div>
                     <div class="ibox-content">
                         <p>

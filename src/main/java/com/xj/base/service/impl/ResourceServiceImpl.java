@@ -45,7 +45,7 @@ public class ResourceServiceImpl extends BaseServiceImpl<Resource, Integer>
 	}
 
 	@Override
-	@Cacheable(value = "resourceCache", key = "'tree' + #roleId")
+//	@Cacheable(value = "resourceCache", key = "'tree' + #roleId")
 	public List<ZtreeView> tree(int roleId) {
 		List<ZtreeView> resulTreeNodes = new ArrayList<ZtreeView>();
 		Role role = roleService.find(roleId);

@@ -62,7 +62,6 @@ public class CourseController extends BaseController{
 	public String add(ModelMap map) {
 		Map<String, String> map2 = new HashMap<String, String>();
 		List<Course> list = courseService.findAll();
-		map.put("map2", map2);
 		return "admin/course/form";
 	}
 

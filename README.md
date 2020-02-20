@@ -1,54 +1,12 @@
- springboot-hadmin
- ==================
+1、系统管理后台基本框架SPPanAdmin，包括用户管理，角色管理，资源链接管理模块等
+2、使用springboot、springdata jpa、shiro等服务端技术，使用freemarker模版渲染页面。
+3、系统中对springdata的查询条件Specification做了简单的封装，更加方便查询条件的灵活使用。
+4、前端技术：使用Hadmin系统模版，数据表格使用bootstrap table插件，弹窗使用layer插件，日期选择使用laydate插件。表单验证使用jQuery validate插件等等。
+5、系统部署：
+    1）使用mysql数据库，先建立一个空数据库base，最好编码使用utf-8字符集，不然会乱码。
+    2）把application.properties中的数据库连接信息修改成自己数据库的连接信息。
+    3）系统时会自动创建表并且导入相关数据，修改spring.jpa.hibernate.ddl-auto默认为create，目的是让系统自动建表同时初始化相关集成数据。如果不需要自动初始化数据，可以修改/base2/src/main/resources/application.properties   18行 spring.jpa.hibernate.ddl-auto=update
+6、系统启动后，访问：127.0.0.1/admin/会自动跳转到后台登录页面。
+7、初始用户名和密码为：admin/111111。  教师：xujian/111111   学生： 10000/111111
 
-Sparrow微框架之Hadmin 简介：Hadmin是一个springboot项目，前端页面采用hadmin模板，集成freemarker模板，表格采用bootstraptable，弹出采用layer，验证采用jquery validate <br> 
-系统管理后台基本框架 <br> 
-*	1.springboot <br> 
-*	2.springdata jpa <br> 
-*	3.shiro <br> 
-*	4.freemarker <br> 
-功能列表 <br> 
-*	1.用户管理 <br> 
-*		1.1添加用户 <br> 
-*		1.2编辑用户 <br> 
-*		1.3删除用户 <br> 
-*		1.4查询 <br> 
-*		1.5关联角色 <br> 
-*	2.角色管理 <br> 
-*		2.1新增角色 <br> 
-*		2.2编辑角色 <br> 
-*		2.3删除角色 <br> 
-*		2.4查询角色 <br> 
-*		2.5分配资源 <br> 
-*	3.资源链接管理模块 <br> 
-*		3.1新增资源链接 <br> 
-*		3.2编辑资源链接 <br> 
-*		3.3删除资源链接 <br> 
-*		3.4查询资源链接 <br> 
-*	4.员工模块 <br> 
-*		4.1新增员工链接 <br> 
-*		4.2编辑员工链接 <br> 
-*		4.3删除员工链接 <br> 
-*		4.4查询员工链接 <br> 
-*	5.工资模块 <br> 
-*		5.1查看工资套账模块 <br> 
-*		5.2修改工资套账模块 <br> 
-*		5.2新增工资套账模块 <br> 
-*		5.3为公司员工设置工资套装模块 <br> 
-*	6.公告模块 <br> 
-*		6.1发布公告 <br> 
-*		6.2删除公告 <br> 
-*		6.3查看公告 <br> 
-*	7.请假模块 <br> 
-*		7.1申请请假模块 <br> 
-*		7.2审批请假模块 <br> 
-
-
-
-系统中对springdata的查询条件Specification做了简单的封装，更加方便查询条件的灵活使用。 <br> 
-前端技术： <br> 
-* 1.使用Hadmin系统模版 <br> 
-* 2.数据表格使用bootstrap table插件 <br> 
-* 3.弹窗使用layer插件 <br> 
-* 4.日期选择使用laydate插件。 5.表单验证使用jQuery validate插件等等 <br> 
-
+    

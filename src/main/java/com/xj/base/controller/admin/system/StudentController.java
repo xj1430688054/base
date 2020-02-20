@@ -1,6 +1,7 @@
 package com.xj.base.controller.admin.system;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -72,7 +73,16 @@ public class StudentController extends BaseController {
 	
 	}
 	
-	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String add(ModelMap map) {
+		Map<String, String> map2 = new HashMap<String, String>();
+		List<Course> list = courseService.findAll();
+		
+//		List<Dormitory> dormitorys = dormitoryService.findAll();
+//		map.put("dormitorys", dormitorys);
+		map.put("add", "add");
+		return "admin/student/form";
+	}
 
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
@@ -92,12 +102,12 @@ public class StudentController extends BaseController {
 	@RequestMapping(value= {"/edit"} ,method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult edit(Student student,ModelMap map, Integer dormid){
-		String number = "";
-		Integer id = student.getId();
 		try {
-			Dormitory dormitory = dormitoryService.find(dormid);
-			student.setDormitory(dormitory);
-			 number = studentService.saveOrUpdate(student);
+			if (null != dormid) {
+				Dormitory dormitory = dormitoryService.find(dormid);
+				student.setDormitory(dormitory);
+			}
+			studentService.saveOrUpdate(student);
 		//	studentService.update(student);
 		} catch (Exception e) {
 			return JsonResult.failure(e.getMessage());

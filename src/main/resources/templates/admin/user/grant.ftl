@@ -48,9 +48,9 @@
                                     <div class="checkbox i-checks">
                                         <label>
                                         	<#if roleIds?seq_contains(role.id)>
-                                            	<input type="checkbox" value="${role.id}" name="roleIds" checked="checked"> <i></i> ${role.name}
+                                            	<input type="radio" value="${role.id}" name="roleIds" checked="checked"> <i></i> ${role.name}
                                             <#else>
-                                            	<input type="checkbox" value="${role.id}" name="roleIds"> <i></i> ${role.name}
+                                            	<input type="radio" value="${role.id}" name="roleIds"> <i></i> ${role.name}
                                             </#if>
                                         </label>
                                     </div>

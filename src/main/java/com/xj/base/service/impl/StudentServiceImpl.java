@@ -3,6 +3,7 @@ package com.xj.base.service.impl;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,10 +77,12 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, Integer> implem
 			update(stu);
 			return "";
 		}else{
-
+			Integer ss = (new Random()).nextInt(100000);
+			student.setId(ss);
 			save(student);
-			Integer i= iStudentDao.selectId();
+//			Integer i= iStudentDao.selectId() + 1;
 			Discipline  d = new Discipline();
+			d.setId(ss);
 			disciplineService.save(d);
 		}
 		return "";
