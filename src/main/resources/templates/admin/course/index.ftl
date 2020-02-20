@@ -32,7 +32,7 @@
                     </div>
                     <div class="ibox-content">
                         <p>
-                        <@shiro.hasPermission name="system:dept:add">
+                        <@shiro.hasPermission name="system:course:add">
                         	<button class="btn btn-success " type="button" onclick="add();"><i class="fa fa-plus"></i>&nbsp;添加</button>
                         </@shiro.hasPermission>
                         </p>
@@ -82,7 +82,7 @@
 			    //必须设置，不然request.getParameter获取不到请求参数
 			    contentType: "application/x-www-form-urlencoded",
 			    //获取数据的Servlet地址  
-			    url: "${ctx!}/admin/dept/list",
+			    url: "${ctx!}/admin/course/list",
 			    //表格显示条纹  
 			    striped: true,
 			    //启动分页  
@@ -119,28 +119,14 @@
 			        title: "课程",
 			        field: "name"
 			    },{
-			        title: "部门人数",
-			        field: "number"
-			    },{
-			        title: "上级部门",
-			        field: "isparentname"
-			    },{
-			        title: "部门层级",
-			        field: "deppath"
-			    },{
-			        title: "创建时间",
-			        field: "createTime",
-			        sortable: true
-			    },{
-			        title: "更新时间",
-			        field: "updateTime",
-			        sortable: true
+			        title: "任课老师",
+			        field: "teachername"
 			    },{
 			        title: "操作",
 			        field: "empty",
                     formatter: function (value, row, index) {
-                    	var operateHtml = '<@shiro.hasPermission name="system:dept:edit"><button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
-                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:dept:delete"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button> &nbsp;</@shiro.hasPermission>';
+                    	var operateHtml = '<@shiro.hasPermission name="system:course:edit"><button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
+                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:course:delete"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button> &nbsp;</@shiro.hasPermission>';
                         return operateHtml;
                     }
 			    }]
@@ -154,7 +140,7 @@
         	      shadeClose: true,
         	      shade: false,
         	      area: ['893px', '600px'],
-        	      content: '${ctx!}/admin/dept/edit/' + id,
+        	      content: '${ctx!}/admin/course/edit/' + id,
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
        	    	  }
@@ -167,7 +153,7 @@
         	      shadeClose: true,
         	      shade: false,
         	      area: ['893px', '600px'],
-        	      content: '${ctx!}/admin/dept/add',
+        	      content: '${ctx!}/admin/course/add',
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
        	    	  }
@@ -180,7 +166,7 @@
         	      shadeClose: true,
         	      shade: false,
         	      area: ['893px', '600px'],
-        	      content: '${ctx!}/admin/dept/grant/'  + id,
+        	      content: '${ctx!}/admin/course/grant/'  + id,
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
        	    	  }
@@ -191,7 +177,7 @@
         		$.ajax({
     	    		   type: "POST",
     	    		   dataType: "json",
-    	    		   url: "${ctx!}/admin/dept/delete/" + id,
+    	    		   url: "${ctx!}/admin/course/delete/" + id,
     	    		   success: function(msg){
 	 	   	    			layer.msg(msg.message, {time: 2000},function(){
 	 	   	    				$('#table_list').bootstrapTable("refresh");

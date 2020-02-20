@@ -47,6 +47,11 @@ public class CourseController extends BaseController{
 			builder.addOr("name", Operator.likeAll.name(), searchText);
 		}
 		Page<Course> page = courseService.findAll(builder.generateSpecification(), getPageRequest());
+		for (Course course : page) {
+			String teacherName = courseService.findTeacheById(course.getId());
+			course.setTeachername(teacherName);
+//			course.setTeacher(teacher);
+		}
 		
 		
 		return page;

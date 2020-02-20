@@ -1,7 +1,9 @@
 package com.xj.base.service;
 
 import java.util.Date;
+import java.util.List;
 
+import com.xj.base.entity.Teacher;
 import com.xj.base.entity.Course;
 import com.xj.base.entity.User;
 import com.xj.base.service.support.IBaseService;
@@ -30,6 +32,10 @@ public interface ICourseService extends IBaseService<Course, Integer>{
 	String findDeppathById(Integer id);
 	
 	Integer findMaxId();
+
+	String findTeacheById(Integer id);
+
+	List<Integer> findTeacherAll(Integer id);
 
 
 

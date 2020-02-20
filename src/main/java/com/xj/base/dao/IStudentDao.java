@@ -21,4 +21,8 @@ public interface IStudentDao extends IBaseDao<Student, Integer>{
 	@Query(nativeQuery = true,value = "select concat(a.building,a.doorplate) from tb_dormitory a where id = (select b.did from tb_student_dormitory b where b.sid = ?1)")
 	String findDormitoryNameById(Integer id);
 
+	
+	@Query(nativeQuery = true,value = "select last_insert_id();")
+	Integer selectId();
+
 }

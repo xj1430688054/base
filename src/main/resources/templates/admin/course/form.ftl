@@ -40,30 +40,15 @@
 					<div class="ibox-content">
 						<form class="form-horizontal m-t" id="frm" method="post"
 							action="${ctx!}/admin/dept/edit">
-							<input type="hidden" id="id" name="id" value="${department.id}">
+							<input type="hidden" id="id" name="id" value="${course.id}">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">部门名字</label>
+								<label class="col-sm-3 control-label">课程名称</label>
 								<div class="col-sm-8">
 									<input id="name" name="name" class="form-control"
-										value="${department.name}">
+										value="${course.name}">
 								</div>
 							</div>
-							<#if !department??>
-							<div class="form-group">
-								<label class="col-sm-3 control-label">上级部门：</label>
-								<div class="col-sm-8">
-									<select name="parentid" class="form-control" >
- 				  						<#if map2?exists>
-   											<#list map2?keys as key>
-  												<option value="${key} " >
-                                                   ${map2[key]?default("未能找到对应数据"+"${key}")}
-                                                </option>
-  											 </#list>
-  										</#if>
-									</select>
-								</div>
-							</div>
-							</#if>	
+						
 							<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-3">
 									<button class="btn btn-primary" type="submit">提交</button>
@@ -94,22 +79,10 @@
     $(document).ready(function () {
 	    $("#frm").validate({
     	    rules: {
-    	    	roleKey: {
+    	    	name: {
     	        required: true,
     	        minlength: 2,
     	    	maxlength: 30
-    	      },
-    	        name: {
-    	        required: true,
-    	        minlength: 2,
-    	    	maxlength: 30
-    	      },
-    	        status: {
-    	        required: true
-    	      },
-    	      	description: {
-    	        required: true,
-    	        maxlength: 40
     	      }
     	    },
     	    messages: {},
@@ -117,7 +90,7 @@
     	    	$.ajax({
    	    		   type: "POST",
    	    		   dataType: "json",
-   	    		   url: "${ctx!}/admin/dept/edit",
+   	    		   url: "${ctx!}/admin/course/edit",
    	    		   data: $(form).serialize(),
    	    		   success: function(msg){
 	   	    			layer.msg(msg.message, {time: 2000},function(){

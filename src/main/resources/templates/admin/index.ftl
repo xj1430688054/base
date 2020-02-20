@@ -84,23 +84,32 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                         
+                          <@shiro.hasPermission name="system:student:index">
                             <li>
                                <a class="J_menuItem" href="${ctx!}/admin/student/index">学生信息管理</a>
                             </li>
-                     
+                     		</@shiro.hasPermission>
+                         <@shiro.hasPermission name="system:course:index">
                             <li>
                                 <a class="J_menuItem" href="${ctx!}/admin/course/index">课程信息管理</a>
                             </li>
-                      
+                      </@shiro.hasPermission>
+                         <@shiro.hasPermission name="system:teacher:index">
                             <li>
-                                <a class="J_menuItem" href="${ctx!}/admin/log/index">教师信息管理</a>
+                                <a class="J_menuItem" href="${ctx!}/admin/teacher/index">教师信息管理</a>
                             </li>
-                     
+                     </@shiro.hasPermission>
+                         <@shiro.hasPermission name="system:dorm:index">
                             <li>
                                 <a class="J_menuItem" href="${ctx!}/admin/dorm/index">宿舍信息管理</a>
                             </li>
-                       
+                        </@shiro.hasPermission>
+                        
+                          <@shiro.hasPermission name="system:disc:index">
+                            <li>
+                                <a class="J_menuItem" href="${ctx!}/admin/disc/index">处分信息管理</a>
+                            </li>
+                        </@shiro.hasPermission>
                        
                        
                        

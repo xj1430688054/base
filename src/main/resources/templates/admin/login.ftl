@@ -35,10 +35,10 @@
                 </#if>
                 <form method="post" action="${ctx!}/admin/login" id="frm">
                     <h4 class="no-margins">登录：</h4>
-                    <p class="m-t-md">登录到人事管理系统</p>
+                    <p class="m-t-md">登录到课程信息管理系统</p>
                     <input type="text" class="form-control uname" name="username" id="username" placeholder="用户名" />
                     <input type="password" class="form-control pword m-b" name="password" id="password"  placeholder="密码" />
-                    <a href="" class="forget">忘记密码了？请联系管理员手机号：18435997695</a>
+                    <a href="" class="forget">忘记密码了？请联系管理员手机号：110</a>
                     <button class="btn btn-success btn-block">登录</button>
                 </form>
             </div>

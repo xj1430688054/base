@@ -77,6 +77,11 @@ public class Student extends BaseEntity{
     private String dormName;
 
 
+	
+
+    
+    
+
     
 	
 	

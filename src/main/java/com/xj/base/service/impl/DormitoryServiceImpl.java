@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.xj.base.dao.IDormitoryDao;
 import com.xj.base.dao.support.IBaseDao;
 import com.xj.base.entity.Dormitory;
+import com.xj.base.entity.Dormitory;
 import com.xj.base.entity.Role;
 import com.xj.base.service.IDormitoryService;
 import com.xj.base.service.IRoleService;
@@ -22,5 +23,21 @@ public class DormitoryServiceImpl   extends BaseServiceImpl<Dormitory, Integer> 
 		// TODO Auto-generated method stub
 		return this.iPositionDao;
 	}
+
+	@Override
+	public void saveOrUpdate(Dormitory dormitory) {
+		if(dormitory.getId() != null){
+			Dormitory dbdormitory = find(dormitory.getId());
+			dbdormitory.setBuilding(dormitory.getBuilding());
+			dbdormitory.setDoorplate(dormitory.getDoorplate());
+			update(dbdormitory);
+		}else{
+			
+			
+			save(dormitory);
+		}
+		
+	}
+	
 
 }

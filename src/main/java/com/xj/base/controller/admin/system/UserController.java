@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -81,7 +82,7 @@ public class UserController extends BaseController {
 		try {
 			userService.delete(id);
 		} catch (Exception e) {
-			e.printStackTrace();
+			Assert.state(true,"请先删除该角色分配的权限或者用户取消关联此角色");
 			return JsonResult.failure(e.getMessage());
 		}
 		return JsonResult.success();

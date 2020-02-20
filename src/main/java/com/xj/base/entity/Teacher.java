@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.xj.base.entity.support.BaseEntity;
 
 import lombok.Data;
@@ -37,7 +39,7 @@ public class Teacher extends BaseEntity{
 	private Date birthday;
 
 
-	private Integer nation;
+	private String nation;
 
 	private String nativeplace;
 
@@ -47,8 +49,13 @@ public class Teacher extends BaseEntity{
 
 	private String address;
 
+	@JsonIgnoreProperties
+    @JsonIgnore
     @JSONField(serialize = false)
 	@OneToMany(cascade = { CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinTable(name = "tb_teacher_course", joinColumns = { @JoinColumn(name = "tid") }, inverseJoinColumns = { @JoinColumn(name = "cid") })
     private java.util.Set<Course> courses;
+	
+
+	
 }

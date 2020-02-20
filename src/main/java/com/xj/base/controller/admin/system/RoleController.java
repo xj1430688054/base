@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -76,10 +77,12 @@ public class RoleController extends BaseController {
 	@ResponseBody
 	public JsonResult delete(@PathVariable Integer id,ModelMap map) {
 		try {
-			roleService.delete(id);
+			
+			roleService.delete(roleService.find(id));
 		} catch (Exception e) {
 			e.printStackTrace();
-			return JsonResult.failure(e.getMessage());
+			Assert.state(true,"请先删除该角色分配的权限或者用户取消关联此角色");
+			return JsonResult.failure("请先删除该角色分配的权限");
 		}
 		return JsonResult.success();
 	}

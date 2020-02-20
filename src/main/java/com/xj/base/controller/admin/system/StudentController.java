@@ -73,20 +73,7 @@ public class StudentController extends BaseController {
 	}
 	
 	
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String add(ModelMap map) {
-		Map<String, String> map2 = new java.util.HashMap<>();
-		List<Dormitory> list = dormitoryService.findAll();
-		
-		
-		Map<String, String> map3 = new java.util.HashMap<>();
-		List<Course> list1 = courseService.findAll();
-		for (Course dosition : list1) {
-			map3.put(String.valueOf(dosition.getId()),dosition.getName());
-		}
-		map.put("map3", map3);
-		return "admin/student/form";
-	}
+
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable Integer id,ModelMap map) {
@@ -116,12 +103,6 @@ public class StudentController extends BaseController {
 			return JsonResult.failure(e.getMessage());
 		}
 	return JsonResult.success();
-//		if(id == null){
-//			return JsonResult.success("新增员工的工号是： " + number + "默认密码是111111");
-//		}
-//		else{
-//			return JsonResult.success();
-//		}
 	}
 	
 

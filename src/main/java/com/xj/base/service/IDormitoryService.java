@@ -14,6 +14,8 @@ import com.xj.base.service.support.IBaseService;
  */
 public interface IDormitoryService extends IBaseService<Dormitory, Integer>{
 
+	void saveOrUpdate(Dormitory dormitory);
+
 	
 	/**
 	 * 根据用户名查找用户

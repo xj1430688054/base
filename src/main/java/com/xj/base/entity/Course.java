@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.xj.base.entity.support.BaseEntity;
 
 import lombok.Data;
@@ -42,13 +44,24 @@ public class Course extends BaseEntity{
 
     private String enabled;
     
-    @JSONField(serialize = false)
-   	@ManyToOne(cascade = { CascadeType.REFRESH }, fetch = FetchType.LAZY)
-   	@JoinTable(name = "tb_teacher_course", joinColumns = { @JoinColumn(name = "cid") }, inverseJoinColumns = { @JoinColumn(name = "tid") })
-    private Teacher teacher;
+//    @JsonIgnoreProperties
+//    @JsonIgnore
+//    @JSONField(serialize = false)
+//   	@ManyToOne(cascade = { CascadeType.REFRESH }, fetch = FetchType.LAZY)
+//   	@JoinTable(name = "tb_teacher_course", joinColumns = { @JoinColumn(name = "cid") }, inverseJoinColumns = { @JoinColumn(name = "tid") })
+//    private Teacher teacher;
     
     @Transient
     private String teachername;
+    
+    
+//    public void setTeacher(Teacher teacher) {
+//        this.teacher = teacher;
+//        this.teachername = teacher.getName();
+//        
+//    }
+//    
+    
 
   
     

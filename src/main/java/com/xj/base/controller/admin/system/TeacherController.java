@@ -139,13 +139,19 @@ public class TeacherController extends BaseController{
 		map.put("teacher", teacher);
 		
 		Set<Course> set = teacher.getCourses();
+		
+		//解决java.lang.StackOverflowError: null
+		
 		List<Integer> courseIds = new ArrayList<Integer>();
 		for (Course course : set) {
 			courseIds.add(course.getId());
 		}
 		map.put("courseIds", courseIds);
 		
-		List<Course> courses = courseService.findAll();
+		List<Integer> coursid = courseService.findTeacherAll(id);
+		
+		List<Course> courses = courseService.findList(coursid);
+		
 		map.put("courses", courses);
 		return "admin/teacher/grant";
 	}

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>人事信息</title>
+    <title>信息</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -32,7 +32,7 @@
                     </div>
                     <div class="ibox-content">
                         <p>
-                        	<@shiro.hasPermission name="system:employee:add">
+                        	<@shiro.hasPermission name="system:teacher:add">
                         		<button class="btn btn-success " type="button" onclick="add();"><i class="fa fa-plus"></i>&nbsp;添加</button>
                         	</@shiro.hasPermission>
                         </p>
@@ -82,7 +82,7 @@
 			    //必须设置，不然request.getParameter获取不到请求参数
 			    contentType: "application/x-www-form-urlencoded",
 			    //获取数据的Servlet地址  
-			    url: "${ctx!}/admin/employee/list",
+			    url: "${ctx!}/admin/teacher/list",
 			    //表格显示条纹  
 			    striped: true,
 			    //启动分页  
@@ -96,7 +96,7 @@
 			    //是否启用查询  
 			    search: true,
 			    //是否启用详细信息视图
-			    detailView:true,
+			   // detailView:true,
 			    detailFormatter:detailFormatter,
 			    //表示服务端请求  
 			    sidePagination: "server",
@@ -151,27 +151,16 @@
 			        title: "操作",
 			        field: "empty",
                     formatter: function (value, row, index) {
-                    	var operateHtml = '<@shiro.hasPermission name="system:employee:add"><button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
-                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:employee:delete"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button></@shiro.hasPermission>';
-                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:student:edit"><button class="btn btn-info btn-xs" type="button" onclick="grant(\''+row.id+'\')"><i class="fa fa-arrows"></i>&nbsp;所教课程</button></@shiro.hasPermission>';
+                    	var operateHtml = '<@shiro.hasPermission name="system:teacher:add"><button class="btn btn-primary btn-xs" type="button" onclick="edit(\''+row.id+'\')"><i class="fa fa-edit"></i>&nbsp;修改</button> &nbsp;</@shiro.hasPermission>';
+                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:teacher:delete"><button class="btn btn-danger btn-xs" type="button" onclick="del(\''+row.id+'\')"><i class="fa fa-remove"></i>&nbsp;删除</button></@shiro.hasPermission>';
+                    	operateHtml = operateHtml + '<@shiro.hasPermission name="system:teacher:edit"><button class="btn btn-info btn-xs" type="button" onclick="grant(\''+row.id+'\')"><i class="fa fa-arrows"></i>&nbsp;所教课程</button></@shiro.hasPermission>';
                         return operateHtml;
                     }
 			    }]
 			});
         });
         
-        function findByDept(id){
-        	$(".form-control").trigger("input"); 
-        	$(".form-control").val(id);
-        	$.ajax({       		 
-        		   url: "/admin/employee/con",
-        		   data: {"department":id},
-        		   success: function(msg){
-        			   $('#table_list').bootstrapTable("refresh");
-        		   }
-        		});
-        	
-        }
+ 
         
         function edit(id){
         	layer.open({
@@ -180,7 +169,7 @@
         	      shadeClose: true,
         	      shade: false,
         	      area: ['893px', '600px'],
-        	      content: '${ctx!}/admin/employee/edit/' + id,
+        	      content: '${ctx!}/admin/teacher/edit/' + id,
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
        	    	  }
@@ -193,7 +182,20 @@
         	      shadeClose: true,
         	      shade: false,
         	      area: ['893px', '600px'],
-        	      content: '${ctx!}/admin/employee/add',
+        	      content: '${ctx!}/admin/teacher/add',
+        	      end: function(index){
+        	    	  $('#table_list').bootstrapTable("refresh");
+       	    	  }
+        	    });
+        }
+        function grant(id){
+        	layer.open({
+        	      type: 2,
+        	      title: '关联课程',
+        	      shadeClose: true,
+        	      shade: false,
+        	      area: ['893px', '600px'],
+        	      content: '${ctx!}/admin/teacher/grant/'  + id,
         	      end: function(index){
         	    	  $('#table_list').bootstrapTable("refresh");
        	    	  }
@@ -204,7 +206,7 @@
         		$.ajax({
     	    		   type: "POST",
     	    		   dataType: "json",
-    	    		   url: "${ctx!}/admin/employee/delete/" + id,
+    	    		   url: "${ctx!}/admin/teacher/delete/" + id,
     	    		   success: function(msg){
 	 	   	    			layer.msg(msg.message, {time: 2000},function(){
 	 	   	    				$('#table_list').bootstrapTable("refresh");

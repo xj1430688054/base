@@ -19,9 +19,11 @@ import com.xj.base.dao.IStudentDao;
 import com.xj.base.dao.IUserDao;
 import com.xj.base.dao.support.IBaseDao;
 import com.xj.base.entity.Course;
+import com.xj.base.entity.Discipline;
 import com.xj.base.entity.Role;
 import com.xj.base.entity.Student;
 import com.xj.base.entity.User;
+import com.xj.base.service.DisciplineService;
 import com.xj.base.service.ICourseService;
 import com.xj.base.service.IStudentService;
 import com.xj.base.service.IUserService;
@@ -37,6 +39,8 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, Integer> implem
 	private IUserService userService;
 	@Autowired
 	private ICourseService courseService;
+	@Autowired
+	private DisciplineService disciplineService;
 
 	@Override
 	public Student findByName(String name) {
@@ -48,6 +52,15 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, Integer> implem
 	public IBaseDao<Student, Integer> getBaseDao() {
 		// TODO Auto-generated method stub
 		return this.iStudentDao;
+	}
+	
+	
+
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		super.delete(id);
+		disciplineService.delete(id);
 	}
 
 	@Override
@@ -65,6 +78,9 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, Integer> implem
 		}else{
 
 			save(student);
+			Integer i= iStudentDao.selectId();
+			Discipline  d = new Discipline();
+			disciplineService.save(d);
 		}
 		return "";
 		

@@ -30,7 +30,7 @@
 						
 					</div>
 					<div class="ibox-content">
-						<p>学生信息</p>
+						<p>教师信息</p>
 					</div>
 				</div>
 			</div>
@@ -39,17 +39,17 @@
 			<div class="col-sm-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5>学生编辑</h5>
+						<h5>教师编辑</h5>
 					</div>
 					<div class="ibox-content">
 						<form class="form-horizontal m-t" id="frm" method="post"
-							action="${ctx!}/admin/teacher/edit">
-							<input type="hidden" id="id" name="id" value="${teacher.id}">
+							action="${ctx!}/admin/student/edit">
+							<input type="hidden" id="id" name="id" value="${student.id}">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">姓名：</label>
 								<div class="col-sm-8">
 									<input id="name" name="name" class="form-control"
-										value="${teacher.name}">
+										value="${student.name}">
 								</div>
 							</div>
 						
@@ -57,9 +57,9 @@
 								<label class="col-sm-3 control-label">性别：</label>
 								<div class="col-sm-8">
 									<select name="sex" class="form-control">
-										<option value="0"<#if teacher.sex ==
+										<option value="0"<#if student.sex ==
 											0>selected="selected"</#if>>女</option>
-										<option value="1"<#if teacher.sex ==
+										<option value="1"<#if student.sex ==
 											1>selected="selected"</#if>>男</option>
 									</select>
 								</div>
@@ -69,23 +69,23 @@
 								<label class="col-sm-3 control-label">地址：</label>
 								<div class="col-sm-8">
 									<input id="address" name="address" class="form-control"
-										value="${teacher.address}">
+										value="${student.address}">
 								</div>
 							</div>
-	
+							
 							
 							<div class="form-group">
 								<label class="col-sm-3 control-label">邮箱：</label>
 								<div class="col-sm-8">
 									<input id="email" name="email" class="form-control"
-										value="${teacher.email}">
+										value="${student.email}">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">电话：</label>
 								<div class="col-sm-8">
 									<input id="phone" name="phone" class="form-control"
-										value="${teacher.phone}">
+										value="${student.phone}">
 								</div>
 							</div>
 							
@@ -93,7 +93,7 @@
 								<label class="col-sm-3 control-label">民族：</label>
 								<div class="col-sm-8">
 									<input id="nation" name="nation" class="form-control"
-										value="${teacher.nation}">
+										value="${student.nation}">
 								</div>
 							</div>
 							
@@ -101,7 +101,7 @@
 								<label class="col-sm-3 control-label">籍贯：</label>
 								<div class="col-sm-8">
 									<input id="nativeplace" name="nativeplace" class="form-control"
-										value="${teacher.nativeplace}">
+										value="${student.nativeplace}">
 								</div>
 							</div>
 					
@@ -190,7 +190,7 @@
     	    	$.ajax({
    	    		   type: "POST",
    	    		   dataType: "json",
-   	    		   url: "${ctx!}/admin/teacher/edit",
+   	    		   url: "${ctx!}/admin/student/edit",
    	    		   data: $(form).serialize(),
    	    		   success: function(msg){
    	    		        alert(msg.message)

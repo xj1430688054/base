@@ -40,68 +40,21 @@
                         <h5>完整验证表单</h5>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal m-t" id="frm" method="post" action="${ctx!}/admin/user/edit">
-                        	<input type="hidden" id="id" name="id" value="${user.id}">
+                        <form class="form-horizontal m-t" id="frm" method="post" action="${ctx!}/admin/dorm/edit">
+                        	<input type="hidden" id="id" name="id" value="${dormitory.id}">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">账户名：</label>
+                                <label class="col-sm-3 control-label">宿舍楼：</label>
                                 <div class="col-sm-8">
-                                    <input id="userName" name="userName" class="form-control" type="text" value="${user.userName}" <#if user?exists> readonly="readonly"</#if> >
+                                    <input id="building" name="building" class="form-control" type="text" value="${dormitory.building}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">昵称：</label>
+                                <label class="col-sm-3 control-label">宿舍门牌号：</label>
                                 <div class="col-sm-8">
-                                    <input id="nickName" name="nickName" class="form-control" type="text" value="${user.nickName}">
+                                    <input id="doorplate" name="doorplate" class="form-control" value="${dormitory.doorplate}">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">性别：</label>
-                                <div class="col-sm-8">
-                                	<select name="sex" class="form-control">
-                                		<option value="0" <#if user.sex == 0>selected="selected"</#if>>女</option>
-                                		<option value="1" <#if user.sex == 1>selected="selected"</#if>>男</option>
-                                	</select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">出生日期：</label>
-                                <div class="col-sm-8">
-                                    <input id="birthday" name="birthday" readonly="readonly" class="laydate-icon form-control layer-date" value="${user.birthday}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">电话：</label>
-                                <div class="col-sm-8">
-                                    <input id="telephone" name="telephone" class="form-control" value="${user.telephone}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">E-mail：</label>
-                                <div class="col-sm-8">
-                                    <input id="email" name="email" class="form-control" value="${user.email}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">地址：</label>
-                                <div class="col-sm-8">
-                                    <input id="address" name="address" class="form-control" value="${user.address}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">状态：</label>
-                                <div class="col-sm-8">
-                                	<select name="locked" class="form-control">
-                                		<option value="0" <#if user.locked == 0>selected="selected"</#if>>未锁定</option>
-                                		<option value="1" <#if user.locked == 1>selected="selected"</#if>>锁定</option>
-                                	</select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">描述：</label>
-                                <div class="col-sm-8">
-                                    <input id="description" name="description" class="form-control" value="${user.description}">
-                                </div>
-                            </div>
+                          
                             <div class="form-group">
                                 <div class="col-sm-8 col-sm-offset-3">
                                     <button class="btn btn-primary" type="submit">提交</button>
@@ -130,48 +83,18 @@
     <script src="${ctx!}/assets/js/plugins/layer/laydate/laydate.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
-	  	//外部js调用
-	    laydate({
-	        elem: '#birthday', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
-	        event: 'focus' //响应事件。如果没有传入event，则按照默认的click
-	    });
 	  	
 	    $("#frm").validate({
     	    rules: {
-    	    	userName: {
+    	    	building: {
     	        required: true,
-    	        minlength: 4,
+    	        minlength: 2,
     	    	maxlength: 10
     	      },
-    	      	nickName: {
+    	      doorplate: {
     	        required: true,
-    	        minlength: 4,
+    	        minlength: 2,
     	    	maxlength: 10
-    	      },
-    	      	sex: {
-    	        required: true
-    	      },
-    	      	birthday: {
-    	      	date:true,
-    	        required: true
-    	      },
-    	      	telephone: {
-    	        required: true
-    	      },
-    	      	email: {
-    	      	email:true,
-    	        required: true
-    	      },
-    	      	address: {
-    	        required: true,
-    	        maxlength: 40
-    	      },
-    	      	locked: {
-    	        required: true
-    	      },
-    	      	description: {
-    	        required: true,
-    	        maxlength: 40
     	      }
     	    },
     	    messages: {},
@@ -179,13 +102,13 @@
     	    	$.ajax({
    	    		   type: "POST",
    	    		   dataType: "json",
-   	    		   url: "${ctx!}/admin/user/edit",
+   	    		   url: "${ctx!}/admin/dorm/edit",
    	    		   data: $(form).serialize(),
    	    		   success: function(msg){
-	   	    			layer.msg(msg.message, {time: 2000},function(){
-	   						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-	   						parent.layer.close(index); 
-	   					});
+   	    			layer.msg(msg.message, {time: 2000},function(){
+   						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+   						parent.layer.close(index); 
+   					});
    	    		   }
    	    		});
             } 
