@@ -9,4 +9,17 @@
 6、系统启动后，访问：127.0.0.1/admin/会自动跳转到后台登录页面。
 7、初始用户名和密码为：admin/111111。  教师：xujian/111111   学生： 10000/111111
 
+除了成绩管理的查询 默认为姓名
+
+
+成绩查询的信息为 学生id
+
     
+权限可以及自己配置
+
+
+注意事项：
+	需要安装lombok插件：
+		eclipse安装教程 ：https://jingyan.baidu.com/article/22fe7cede363d83002617f3a.html    安装完了记得clean项目
+		idea安装教程 ： https://www.cnblogs.com/coderjinjian/p/9103755.html   
+		

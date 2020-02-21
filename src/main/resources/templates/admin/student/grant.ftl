@@ -43,6 +43,8 @@
                         <form class="form-horizontal" id="frm" method="post" action="${ctx!}/admin/student/save">
                         	<input type="hidden" id="id" name="id" value="${student.id}">
                         	<div class="form-group">
+                        	
+                        	  <#if courses??>
                         		<#list courses as course>
                                 <div class="col-sm-12">
                                     <div class="checkbox i-checks">
@@ -56,6 +58,8 @@
                                     </div>
                                 </div>
                                 </#list>
+                                </#if>
+                                
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-8 col-sm-offset-3">

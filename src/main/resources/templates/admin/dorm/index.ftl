@@ -29,7 +29,7 @@
             <div class="col-sm-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>请假管理</h5>
+                        <h5>宿舍管理</h5>
                     </div>
                     <div class="ibox-content">
                         <p>
@@ -149,7 +149,7 @@
         function add(){
         	layer.open({
         	      type: 2,
-        	      title: '用户添加',
+        	      title: '宿舍添加',
         	      shadeClose: true,
         	      shade: false,
         	      area: ['893px', '600px'],

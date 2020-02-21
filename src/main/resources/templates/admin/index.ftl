@@ -110,6 +110,12 @@
                                 <a class="J_menuItem" href="${ctx!}/admin/disc/index">处分信息管理</a>
                             </li>
                         </@shiro.hasPermission>
+                        
+                          <@shiro.hasPermission name="system:score:index">
+                            <li>
+                                <a class="J_menuItem" href="${ctx!}/admin/score/index">成绩信息管理</a>
+                            </li>
+                        </@shiro.hasPermission>
                        
                        
                        

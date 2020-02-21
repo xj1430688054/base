@@ -38,6 +38,10 @@ insert into tb_resource (id, create_time, description, icon, is_hide, level, nam
 insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (39, '2017-01-11 16:48:48', '公告删除', null, 0, 3, '公告删除', 3, 'system:notice:delete', '/admin/notice/delete*', 2, '2019-05-08 11:26:00', 36);
 insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (40, '2017-01-10 13:56:51', '处分管理', null, 0, 2, '处分管理', 1, 'system:disc:index', '/admin/disc/index', 1, '2019-05-08 11:26:00', null);
 insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (41, '2017-01-10 13:56:51', '处分修改', null, 0, 3, '处分修改', 1, 'system:disc:edit', '/admin/disc/edit*', 2, '2019-05-08 11:26:00', 40);
+insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (42, '2017-01-10 13:56:51', '成绩管理', null, 0, 3, '成绩管理', 1, 'system:score:index', '/admin/score/index', 2, '2019-05-08 11:26:00', null);
+insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (43, '2017-01-10 13:56:51', '成绩查看', null, 0, 3, '成绩查看', 1, 'system:score:edit', '/admin/score/edit*', 2, '2019-05-08 11:26:00', 42);
+insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (44, '2017-01-11 16:48:48', '成绩添加', null, 0, 3, '成绩添加', 2, 'system:score:add', '/admin/score/add', 2, '2019-05-08 11:26:00', 42);
+insert into tb_resource (id, create_time, description, icon, is_hide, level, name, sort, source_key, source_url, type, update_time, parent_id) values (45, '2017-01-11 16:48:48', '成绩删除', null, 0, 3, '成绩删除', 3, 'system:score:delete', '/admin/score/delete*', 2, '2019-05-08 11:26:00', 42);
 
 
 
@@ -139,6 +143,15 @@ insert into tb_role_resource (role_id, resource_id) values (2, 39);
 insert into tb_role_resource (role_id, resource_id) values (1, 40);
 insert into tb_role_resource (role_id, resource_id) values (2, 40);
 insert into tb_role_resource (role_id, resource_id) values (1, 41);
+insert into tb_role_resource (role_id, resource_id) values (1, 42);
+insert into tb_role_resource (role_id, resource_id) values (1, 43);
+insert into tb_role_resource (role_id, resource_id) values (1, 44);
+insert into tb_role_resource (role_id, resource_id) values (1, 45);
+insert into tb_role_resource (role_id, resource_id) values (2, 42);
+insert into tb_role_resource (role_id, resource_id) values (2, 43);
+insert into tb_role_resource (role_id, resource_id) values (2, 44);
+insert into tb_role_resource (role_id, resource_id) values (2, 45);
+insert into tb_role_resource (role_id, resource_id) values (3, 42);
 
 
 
@@ -400,5 +413,27 @@ insert into tb_discipline (id, semester1, semester2, semester3, semester4, semes
 insert into tb_discipline (id, semester1, semester2, semester3, semester4, semester5, semester6) values (61, 0, 0, 0, 0, 0, 0);
 insert into tb_discipline (id, semester1, semester2, semester3, semester4, semester5, semester6) values (62, 0, 0, 0, 0, 0, 0);
 insert into tb_discipline (id, semester1, semester2, semester3, semester4, semester5, semester6) values (63, 0, 0, 0, 0, 0, 0);
+
+
+insert into tb_score (cid, score, sid) values (1, 80, 1);
+insert into tb_score (cid, score, sid) values (2, 78, 1);
+insert into tb_score (cid, score, sid) values (3, 80, 1);
+insert into tb_score (cid, score, sid) values (4, 90, 1);
+insert into tb_score (cid, score, sid) values (1, 80, 2);
+insert into tb_score (cid, score, sid) values (2, 80, 2);
+insert into tb_score (cid, score, sid) values (3, 76, 2);
+insert into tb_score (cid, score, sid) values (4, 22, 2);
+insert into tb_score (cid, score, sid) values (1, 80, 3);
+insert into tb_score (cid, score, sid) values (2, 34, 3);
+insert into tb_score (cid, score, sid) values (3, 55, 3);
+insert into tb_score (cid, score, sid) values (4, 80, 3);
+insert into tb_score (cid, score, sid) values (1, 67, 4);
+insert into tb_score (cid, score, sid) values (2, 80, 4);
+insert into tb_score (cid, score, sid) values (3, 37, 4);
+insert into tb_score (cid, score, sid) values (4, 98, 4);
+insert into tb_score (cid, score, sid) values (1, 25, 5);
+insert into tb_score (cid, score, sid) values (2, 89, 5);
+insert into tb_score (cid, score, sid) values (3, 87, 5);
+insert into tb_score (cid, score, sid) values (4, 89, 5);
 
 
